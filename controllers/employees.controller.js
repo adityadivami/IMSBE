@@ -1,9 +1,9 @@
 const db = require("../models");
-const Departments = db.departments;
+const Employees = db.employees;
 const Op = db.Sequelize.Op;
 
-const getAllDepartments = (req, res, next) => {
-  Departments.findAll()
+const getAllEmployees = (req, res, next) => {
+  Employees.findAll()
     .then((response) => {
       res.status(200).send({ success: true, message: response });
     })
@@ -12,4 +12,4 @@ const getAllDepartments = (req, res, next) => {
     });
 };
 
-module.exports = getAllDepartments;
+module.exports = getAllEmployees;

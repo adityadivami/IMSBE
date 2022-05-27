@@ -1,9 +1,9 @@
 const db = require("../models");
-const Departments = db.departments;
+const Roles = db.roles;
 const Op = db.Sequelize.Op;
 
 const getAllDepartments = (req, res, next) => {
-  Departments.findAll()
+  Roles.findAll()
     .then((response) => {
       res.status(200).send({ success: true, message: response });
     })
