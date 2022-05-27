@@ -1,11 +1,11 @@
 module.exports = {
-    HOST: "localhost",
+    HOST: "jenkins.divami.com",
     USER: "postgres",
-    PASSWORD: "postgres",
-    DB: "postgres",
+    PASSWORD: "divami",
+    DB: "ismsdb",
     dialect: "postgres",
     pool: {
-      max: 5,
+      max: 100,
       min: 0,
       acquire: 30000,
       idle: 10000
