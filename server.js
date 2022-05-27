@@ -4,7 +4,8 @@ const cors = require("cors");
 const app = express();
 
 const db = require("./models");
-db.sequelize.sync();
+db.sequelize.sync(); // {force:true}  to regen table 
+
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
