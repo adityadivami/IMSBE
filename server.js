@@ -3,14 +3,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 
-const db = require("./models")
-db.sequelize.sync()
+const db = require("./models");
+db.sequelize.sync();
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081",
 };
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
