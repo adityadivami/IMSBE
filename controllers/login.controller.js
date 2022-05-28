@@ -1,10 +1,13 @@
 const db = require("../models");
 const Employees = db.employees;
+const Roles = db.roles;
+const Departments = db.departments;
 const Op = db.Sequelize.Op;
 
 const getOneEmployee = (req, res, next) => {
   const { username, password } = req.body;
   Employees.findOne({
+    include: [{ model: Roles }, { model: Departments }],
     where: { username, password },
   })
     .then((response) => {
