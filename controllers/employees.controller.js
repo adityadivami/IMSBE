@@ -12,4 +12,22 @@ const getAllEmployees = (req, res, next) => {
     });
 };
 
-module.exports = getAllEmployees;
+const createNewEmployee = (req, res, next) => {
+  Employees.create(req.body)
+    .then((response) =>
+      res.status(200).send({
+        success: true,
+        message: "User creation success",
+        data: response,
+      })
+    )
+    .catch((error) => {
+      res.status(400).send({
+        success: false,
+        message: "User creation failure",
+        data: error,
+      });
+    });
+};
+
+module.exports = { getAllEmployees, createNewEmployee };

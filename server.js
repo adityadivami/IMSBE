@@ -5,9 +5,11 @@ const app = express();
 const employeeRoutes = require("./routes/employees.routes");
 const departmentRoutes = require("./routes/department.routes");
 const rolesRoutes = require("./routes/roles.routes");
+const authenticationRoutes = require("./routes/login.routes");
+
 const db = require("./models");
 
-db.sequelize.sync({ alter: true });
+db.sequelize.sync();
 
 var corsOptions = {
   origin: "*",
@@ -19,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(employeeRoutes);
 app.use(departmentRoutes);
 app.use(rolesRoutes);
+app.use(authenticationRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
